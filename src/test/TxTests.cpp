@@ -43,6 +43,8 @@ namespace txtest
 bool
 applyCheck(TransactionFramePtr tx, Application& app)
 {
+    app.getDatabase().clearPreparedStatementCache();
+
     LedgerDelta delta(app.getLedgerManager().getCurrentLedgerHeader(),
                       app.getDatabase());
 
